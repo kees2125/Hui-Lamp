@@ -11,6 +11,9 @@
         <Button x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Ligth OFF" HorizontalAlignment="Left" Margin="124,79,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2" Content="Light On" HorizontalAlignment="Left" Margin="252,79,0,0" VerticalAlignment="Top" Click="button2_Click"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="100" Maximum="254"/>
+        <Button x:Name="button3" Content="Change Brightness" HorizontalAlignment="Left" Margin="142,155,0,0" VerticalAlignment="Top" Click="button3_Click"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="110,237,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="219"/>
 
     </Grid>
 </Page>

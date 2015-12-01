@@ -48,6 +48,13 @@ namespace Hui_lamp
             test.PutCommand("{\"on\": \"true\"}");
         }
 
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            textBox.Text = slider.Value.ToString();
+            test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
+            //int t = (int) slider.Value;
+        }
+
         //public async Task<string> LoginAsync()
         //{
         //    var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:8531/api/");
