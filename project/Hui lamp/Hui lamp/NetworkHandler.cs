@@ -49,7 +49,19 @@ namespace Hui_lamp
             }
         }
 
-        public async Task<string> PutCommand(string url, string Data)
+        public async Task<string> PutCommand(string Data)
+        {
+            string url = "http://" + ip + ":" + port + "/" + "api/" + codedusername +"/" + "lights" +"/"+ "1"+ "/" +"state";
+            HttpContent content = new StringContent(Data, Encoding.UTF8, "application/json");
+            using (HttpClient hc = new HttpClient())
+            {
+                var response = await hc.PutAsync(url, content);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsStringAsync();
+            }
+        }
+
+        public async Task<string> PutCommand1(string url, string Data)
         {
             url = "http://" + ip + ":" + port + "/" + url;
             HttpContent content = new StringContent(Data, Encoding.UTF8, "application/json");

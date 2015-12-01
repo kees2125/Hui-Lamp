@@ -25,6 +25,7 @@ namespace Hui_lamp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        NetworkHandler test;
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,7 +33,14 @@ namespace Hui_lamp
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            new NetworkHandler("localhost", "8531", "martijn");
+            test = new NetworkHandler("localhost", "8000", "martijn");
+            
+            //test.PutCommand("sfdsf");
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            test.PutCommand("{\"on\": \"false\"}");
         }
 
         //public async Task<string> LoginAsync()

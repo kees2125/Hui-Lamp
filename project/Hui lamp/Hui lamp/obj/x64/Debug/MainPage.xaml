@@ -9,6 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Button x:ConnectionId='1' x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="202,122,0,0" VerticalAlignment="Top"                     />
+        <Button x:ConnectionId='2' x:Name="button1" Content="2" HorizontalAlignment="Left" Margin="202,206,0,0" VerticalAlignment="Top"                      />
 
     </Grid>
 </Page>
