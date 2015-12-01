@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,5 +29,24 @@ namespace Hui_lamp
         {
             this.InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            new NetworkHandler("localhost", "8531", "martijn");
+        }
+
+        //public async Task<string> LoginAsync()
+        //{
+        //    var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:8531/api/");
+        //    httpWebRequest.ContentType = "text/plain";
+        //    httpWebRequest.Method = "POST";
+
+        //    using(var stream = await Task.Factory.FromAsync<Stream>(request.BeginGetRequestStream, request.EndGetRequestStream, null))
+        //    {
+        //        string text = "{ \"devicetype\":\"MijnApp Martijn\"}";
+
+        //    streamWriter.Write(text);
+        //    }
+        //}
     }
 }
