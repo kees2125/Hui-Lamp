@@ -43,6 +43,11 @@ namespace Hui_lamp
             test.PutCommand("{\"on\": \"false\"}");
         }
 
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            test.PutCommand("{\"on\": \"true\"}");
+        }
+
         //public async Task<string> LoginAsync()
         //{
         //    var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:8531/api/");
