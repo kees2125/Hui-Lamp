@@ -50,9 +50,17 @@ namespace Hui_lamp
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            textBox.Text = slider.Value.ToString();
             test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
-            //int t = (int) slider.Value;
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
+        }
+
+        private void SaturationButton_Click(object sender, RoutedEventArgs e)
+        {
+            test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
         }
 
         //public async Task<string> LoginAsync()
