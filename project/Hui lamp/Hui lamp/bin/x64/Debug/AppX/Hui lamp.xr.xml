@@ -52,6 +52,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Width" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Hui_lamp.MainPage" />
   </Roots.RootTypes>

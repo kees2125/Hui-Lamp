@@ -20,7 +20,7 @@ namespace Hui_lamp
         private string username;
         private string codedusername;
         private string allInfo;
-        public int lamps = 1;
+        public int lamps = 0;
         public string selectedLamp = "1";
 
 
@@ -30,6 +30,7 @@ namespace Hui_lamp
             this.port = port;
             this.username = username;
             getUsername();
+            
         }
 
         private async void getUsername()
@@ -70,7 +71,7 @@ namespace Hui_lamp
 
         public async Task<string> PutCommand(string Data)
         {
-            string url = "http://" + ip + ":" + port + "/" + "api/" + codedusername +"/" + "lights" +"/"+ "1"+ "/" +"state";
+            string url = "http://" + ip + ":" + port + "/" + "api/" + codedusername +"/" + "lights" +"/"+ selectedLamp + "/" +"state";
             HttpContent content = new StringContent(Data, Encoding.UTF8, "application/json");
             using (HttpClient hc = new HttpClient())
             {

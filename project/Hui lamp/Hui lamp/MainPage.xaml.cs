@@ -27,6 +27,7 @@ namespace Hui_lamp
     {
         NetworkHandler test;
         bool isConnected = false;
+        bool selectAll = false;
         public MainPage()
         {
             this.InitializeComponent();
@@ -41,7 +42,7 @@ namespace Hui_lamp
             isConnected = true;
             for(int i = 0; i < test.lamps; i++ )
             {
-                comboBox_Lamps.Items.Add(i+1);
+                comboBox_Lamps.Items.Add(i+1+"");
             }
             comboBox_Lamps.Items.Add("All Lamps");
             textBox_URL.Text = "" + test.lamps;
@@ -82,10 +83,44 @@ namespace Hui_lamp
         {
             if (isConnected)
             {
+                if(selectAll)
+                {
+                    for(int i=1;i <= test.lamps;i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
+                    }
+                }
+                else
                 test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
                 //@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}"
             }
 
+        }
+
+        private void comboBox_Lamps_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if((string)comboBox_Lamps.SelectedItem !="All Lamps")
+            {
+                selectAll = false;
+                test.selectedLamp = (string)comboBox_Lamps.SelectedItem;
+            }
+            else
+            {
+                selectAll = true;
+            }
+
+        }
+
+        private void button_update_Click(object sender, RoutedEventArgs e)
+        {
+            comboBox_Lamps.Items.Clear();
+            for (int i = 0; i < test.lamps; i++)
+            {
+                comboBox_Lamps.Items.Add(i + 1 + "");
+            }
+            comboBox_Lamps.Items.Add("All Lamps");
+            textBox_URL.Text = "" + test.lamps;
         }
 
         //public async Task<string> LoginAsync()
