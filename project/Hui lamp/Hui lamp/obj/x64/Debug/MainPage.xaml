@@ -22,6 +22,7 @@
         <CheckBox x:ConnectionId='12' x:Name="checkBox_Simulator" Content="simulator" HorizontalAlignment="Left" Height="19" Margin="15,58,0,0" VerticalAlignment="Top" Width="54"/>
         <CheckBox x:ConnectionId='13' x:Name="checkBox_ligthsOn" Content="Lights On" HorizontalAlignment="Left" Margin="15,294,0,0" VerticalAlignment="Top"/>
         <Button x:ConnectionId='14' x:Name="button_SendAll" Content="Set All" HorizontalAlignment="Left" Height="39" Margin="15,345,0,0" VerticalAlignment="Top" Width="101"                             />
+        <ComboBox x:ConnectionId='15' x:Name="comboBox_Lamps" HorizontalAlignment="Left" Height="27" Margin="160,299,0,0" VerticalAlignment="Top" Width="126"/>
 
     </Grid>
 </Page>

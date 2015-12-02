@@ -39,7 +39,10 @@ namespace Hui_lamp
             else
             test = new NetworkHandler(textBox_URL.Text, textBox_Poort.Text, "martijn");
             isConnected = true;
-            //test.PutCommand("sfdsf");
+            for(int i = 0; i < test.lamps; i++ )
+            { comboBox_Lamps.Items.Add(i+1); }
+            comboBox_Lamps.Items.Add("All Lamps");
+            
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)

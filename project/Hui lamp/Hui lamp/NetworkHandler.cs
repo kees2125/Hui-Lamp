@@ -20,6 +20,9 @@ namespace Hui_lamp
         private string username;
         private string codedusername;
         private string allInfo;
+        public int lamps = 1;
+        public string selectedLamp = "1";
+
 
         public NetworkHandler(string ip, string port, string username)
         {
@@ -35,8 +38,22 @@ namespace Hui_lamp
             string[] data = post.Split('\"');
             codedusername = data[5];
             allInfo = await GetCommand("api/" + codedusername);
+            lamps = findAllLamps(data);
         }
+        private int findAllLamps(string[] list)
+        {
+           
+            int amount = 0;
+            
+            for(int i = 0; i<list.Length;i++)
+            {
+                if (list[i].Contains("Hue Lamp"))
+                    amount++;
+                
+            }
+            return amount;
 
+        } 
 
         public async Task<string> GetCommand(string url)
         {
