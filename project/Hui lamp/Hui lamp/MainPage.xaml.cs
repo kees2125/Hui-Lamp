@@ -40,8 +40,11 @@ namespace Hui_lamp
             test = new NetworkHandler(textBox_URL.Text, textBox_Poort.Text, "martijn");
             isConnected = true;
             for(int i = 0; i < test.lamps; i++ )
-            { comboBox_Lamps.Items.Add(i+1); }
+            {
+                comboBox_Lamps.Items.Add(i+1);
+            }
             comboBox_Lamps.Items.Add("All Lamps");
+            textBox_URL.Text = "" + test.lamps;
             
         }
 

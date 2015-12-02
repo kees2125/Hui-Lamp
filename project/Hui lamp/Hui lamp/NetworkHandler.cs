@@ -38,7 +38,7 @@ namespace Hui_lamp
             string[] data = post.Split('\"');
             codedusername = data[5];
             allInfo = await GetCommand("api/" + codedusername);
-            lamps = findAllLamps(data);
+            lamps = findAllLamps(allInfo.Split('\"'));
         }
         private int findAllLamps(string[] list)
         {
@@ -47,8 +47,10 @@ namespace Hui_lamp
             
             for(int i = 0; i<list.Length;i++)
             {
-                if (list[i].Contains("Hue Lamp"))
+                if (list[i].Contains("LCT"))
+                {
                     amount++;
+                }
                 
             }
             return amount;

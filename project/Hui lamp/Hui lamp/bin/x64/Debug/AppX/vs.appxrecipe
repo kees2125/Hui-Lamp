@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\kees zijlmans\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-02T13:00:41.195</Modified>
+      <Modified>2015-12-02T13:55:30.549</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\kees zijlmans\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Hui lamp.exe">
       <PackagePath>entrypoint\Hui lamp.exe</PackagePath>
-      <Modified>2015-12-02T13:00:40.932</Modified>
+      <Modified>2015-12-02T13:55:30.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kees zijlmans\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -506,11 +506,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kees zijlmans\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-02T12:21:08.768</Modified>
+      <Modified>2015-12-02T13:42:45.229</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\kees zijlmans\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\Hui lamp.exe">
       <PackagePath>Hui lamp.exe</PackagePath>
-      <Modified>2015-12-02T13:00:41.191</Modified>
+      <Modified>2015-12-02T13:55:30.546</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

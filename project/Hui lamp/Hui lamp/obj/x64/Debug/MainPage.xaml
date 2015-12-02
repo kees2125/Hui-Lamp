@@ -18,7 +18,7 @@
         <Slider x:ConnectionId='8' x:Name="SaturationSlider" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="127" Maximum="254"/>
         <Button x:ConnectionId='9' x:Name="SaturationButton" Content="Change Saturation" HorizontalAlignment="Left" Margin="143,239,0,0" VerticalAlignment="Top"                               />
         <TextBox x:ConnectionId='10' x:Name="textBox_URL" HorizontalAlignment="Left" Height="23" Margin="15,95,0,0" TextWrapping="Wrap" Text="URL" VerticalAlignment="Top" Width="122"/>
-        <TextBox x:ConnectionId='11' x:Name="textBox_Poort" HorizontalAlignment="Left" Height="32" Margin="160,95,0,0" TextWrapping="Wrap" Text="Poort" VerticalAlignment="Top" Width="126"/>
+        <TextBox x:ConnectionId='11' x:Name="textBox_Poort" HorizontalAlignment="Left" Height="32" Margin="160,95,0,0" TextWrapping="Wrap" Text="8000" VerticalAlignment="Top" Width="126"/>
         <CheckBox x:ConnectionId='12' x:Name="checkBox_Simulator" Content="simulator" HorizontalAlignment="Left" Height="19" Margin="15,58,0,0" VerticalAlignment="Top" Width="54"/>
         <CheckBox x:ConnectionId='13' x:Name="checkBox_ligthsOn" Content="Lights On" HorizontalAlignment="Left" Margin="15,294,0,0" VerticalAlignment="Top"/>
         <Button x:ConnectionId='14' x:Name="button_SendAll" Content="Set All" HorizontalAlignment="Left" Height="39" Margin="15,345,0,0" VerticalAlignment="Top" Width="101"                             />
