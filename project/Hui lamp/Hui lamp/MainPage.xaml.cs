@@ -51,32 +51,89 @@ namespace Hui_lamp
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            if(isConnected)
-            test.PutCommand("{\"on\": \"false\"}");
+            if (isConnected)
+            {
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"on\": \"false\"}");
+                    }
+                }
+                else
+                test.PutCommand("{\"on\": \"false\"}");
+            }
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             if (isConnected)
+            {
+
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"on\": \"true\"}");
+                    }
+                }
+                else
                 test.PutCommand("{\"on\": \"true\"}");
+            }
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
             if (isConnected)
+            {
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
+                    }
+                }
+                else
                 test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
+            }
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             if (isConnected)
+            {
+
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
+                    }
+                }
+                else
                 test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
+            }
         }
 
         private void SaturationButton_Click(object sender, RoutedEventArgs e)
         {
             if (isConnected)
+            {
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
+                    }
+                }
+                else
                 test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
+            }
         }
 
         private void button_SendAll_Click(object sender, RoutedEventArgs e)
