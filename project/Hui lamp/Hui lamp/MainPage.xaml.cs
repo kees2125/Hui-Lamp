@@ -26,6 +26,7 @@ namespace Hui_lamp
     public sealed partial class MainPage : Page
     {
         NetworkHandler test;
+        bool isConnected = false;
         public MainPage()
         {
             this.InitializeComponent();
@@ -33,34 +34,52 @@ namespace Hui_lamp
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            test = new NetworkHandler("localhost", "8000", "martijn");
-            
+            if((bool)checkBox_Simulator.IsChecked)
+            test = new NetworkHandler("localhost", textBox_Poort.Text, "martijn"); 
+            else
+            test = new NetworkHandler(textBox_URL.Text, textBox_Poort.Text, "martijn");
+            isConnected = true;
             //test.PutCommand("sfdsf");
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            if(isConnected)
             test.PutCommand("{\"on\": \"false\"}");
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            test.PutCommand("{\"on\": \"true\"}");
+            if (isConnected)
+                test.PutCommand("{\"on\": \"true\"}");
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
+            if (isConnected)
+                test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
+            if (isConnected)
+                test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
         }
 
         private void SaturationButton_Click(object sender, RoutedEventArgs e)
         {
-            test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
+            if (isConnected)
+                test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
+        }
+
+        private void button_SendAll_Click(object sender, RoutedEventArgs e)
+        {
+            if (isConnected)
+            {
+                test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
+                //@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}"
+            }
+
         }
 
         //public async Task<string> LoginAsync()
