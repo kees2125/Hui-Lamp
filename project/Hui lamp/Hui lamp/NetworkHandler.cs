@@ -10,10 +10,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 
 namespace Hui_lamp
 {
-    class NetworkHandler
+    public class NetworkHandler
     {
         private string ip;
         private string port;
@@ -22,6 +23,7 @@ namespace Hui_lamp
         private string allInfo;
         public int lamps = 0;
         public string selectedLamp = "1";
+        Light light;
 
 
         public NetworkHandler(string ip, string port, string username)
@@ -29,9 +31,14 @@ namespace Hui_lamp
             this.ip = ip;
             this.port = port;
             this.username = username;
-            getUsername();
-            
+            getUsername();           
         }
+
+        public string getAllinfo()
+        {
+            return allInfo;
+        }
+
 
         private async void getUsername()
         {
@@ -40,7 +47,14 @@ namespace Hui_lamp
             codedusername = data[5];
             allInfo = await GetCommand("api/" + codedusername);
             lamps = findAllLamps(allInfo.Split('\"'));
+            light = new Light(this);
         }
+
+        //public Color getColor()
+        //{
+        //    return ColorUtil.getColor(light);
+        //}
+
         private int findAllLamps(string[] list)
         {
            

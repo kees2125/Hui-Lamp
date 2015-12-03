@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,6 +29,7 @@ namespace Hui_lamp
         NetworkHandler test;
         bool isConnected = false;
         bool selectAll = false;
+        Light1 light1;
         public MainPage()
         {
             this.InitializeComponent();
@@ -46,7 +48,20 @@ namespace Hui_lamp
             }
             comboBox_Lamps.Items.Add("All Lamps");
             textBox_URL.Text = "" + test.lamps;
-            
+            light1 = new Light1(slider.Value,ColorSlider.Value,SaturationSlider.Value);
+            Kleur.Fill = new SolidColorBrush(getColor());
+
+        }
+
+        public void updateColor()
+        {
+            light1.setColor(slider.Value, ColorSlider.Value, SaturationSlider.Value);
+            Kleur.Fill = new SolidColorBrush(getColor());
+        }
+
+        public Color getColor()
+        {
+            return ColorUtil.getColor(light1);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -178,6 +193,21 @@ namespace Hui_lamp
             }
             comboBox_Lamps.Items.Add("All Lamps");
             textBox_URL.Text = "" + test.lamps;
+        }
+
+        private void SaturationSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            updateColor();
+        }
+
+        private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            updateColor();
+        }
+
+        private void ColorSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            updateColor();
         }
 
         //public async Task<string> LoginAsync()
