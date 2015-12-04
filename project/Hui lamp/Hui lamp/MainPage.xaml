@@ -11,11 +11,11 @@
         <Button x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Click="button_Click" Width="88"/>
         <Button x:Name="button1" Content="Off" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" Click="button1_Click" Width="69"/>
         <Button x:Name="button2" Content="On" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top" Click="button2_Click" Width="69"/>
-        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="127" Maximum="254" Height="44" ValueChanged="slider_ValueChanged"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="127" Maximum="254" Height="44" ValueChanged="slider_ValueChanged" PointerCaptureLost="slider_PointerCaptureLost"/>
         <Button x:Name="button3" Content="Change Brightness" HorizontalAlignment="Left" Margin="142,155,0,0" VerticalAlignment="Top" Click="button3_Click" Height="37" Width="144"/>
-        <Slider x:Name="ColorSlider" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="127" Height="49" Maximum="65535" ValueChanged="ColorSlider_ValueChanged"/>
+        <Slider x:Name="ColorSlider" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="127" Height="49" Maximum="65535" ValueChanged="ColorSlider_ValueChanged" PointerCaptureLost="ColorSlider_PointerCaptureLost" />
         <Button x:Name="button4" Content="Change Color" HorizontalAlignment="Left" Margin="142,197,0,0" VerticalAlignment="Top" Height="37" Width="144" Click="button4_Click"/>
-        <Slider x:Name="SaturationSlider" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="127" Maximum="254" ValueChanged="SaturationSlider_ValueChanged"/>
+        <Slider x:Name="SaturationSlider" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="127" Maximum="254" ValueChanged="SaturationSlider_ValueChanged" PointerCaptureLost="SaturationSlider_PointerCaptureLost"/>
         <Button x:Name="SaturationButton" Content="Change Saturation" HorizontalAlignment="Left" Margin="143,239,0,0" VerticalAlignment="Top" Click="SaturationButton_Click"/>
         <TextBox x:Name="textBox_URL" HorizontalAlignment="Left" Height="23" Margin="15,95,0,0" TextWrapping="Wrap" Text="145.48.205.190" VerticalAlignment="Top" Width="122" TextChanged="textBox_URL_TextChanged"/>
         <TextBox x:Name="textBox_Poort" HorizontalAlignment="Left" Height="32" Margin="160,95,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="126"/>

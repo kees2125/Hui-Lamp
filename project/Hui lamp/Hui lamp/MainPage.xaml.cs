@@ -77,8 +77,6 @@ namespace Hui_lamp
             }
         }
 
-        
-
         private void button2_Click(object sender, RoutedEventArgs e)
         {
             if (isConnected)
@@ -99,54 +97,17 @@ namespace Hui_lamp
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            if (isConnected)
-            {
-                if (selectAll)
-                {
-                    for (int i = 1; i <= test.lamps; i++)
-                    {
-                        test.selectedLamp = "" + i;
-                        test.PutCommand("{\"bri\":" + slider.Value +" }");
-                    }
-                }
-                else
-                test.PutCommand("{\"bri\":" + slider.Value + "}");
-            }
+            changeBri();
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            if (isConnected)
-            {
-
-                if (selectAll)
-                {
-                    for (int i = 1; i <= test.lamps; i++)
-                    {
-                        test.selectedLamp = "" + i;
-                        test.PutCommand("{\"hue\":" + ColorSlider.Value + "}");
-                    }
-                }
-                else
-                test.PutCommand("{\"hue\":" + ColorSlider.Value + "}");
-            }
+            changeHue();
         }
 
         private void SaturationButton_Click(object sender, RoutedEventArgs e)
         {
-            if (isConnected)
-            {
-                if (selectAll)
-                {
-                    for (int i = 1; i <= test.lamps; i++)
-                    {
-                        test.selectedLamp = "" + i;
-                        test.PutCommand("{\"sat\":" + SaturationSlider.Value + "}");
-                    }
-                }
-                else
-                test.PutCommand("{\"sat\":" + SaturationSlider.Value + "}");
-            }
+            changeSat();
         }
 
         private void button_SendAll_Click(object sender, RoutedEventArgs e)
@@ -199,6 +160,74 @@ namespace Hui_lamp
             comboBox_Lamps.Items.Add("All Lamps");
             //textBox_Poort.Text = test.codedusername;
             
+        }
+
+        private void changeSat()
+        {
+            if (isConnected)
+            {
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"sat\":" + SaturationSlider.Value + "}");
+                    }
+                }
+                else
+                    test.PutCommand("{\"sat\":" + SaturationSlider.Value + "}");
+            }
+        }
+
+        private void changeHue()
+        {
+            if (isConnected)
+            {
+
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"hue\":" + ColorSlider.Value + "}");
+                    }
+                }
+                else
+                    test.PutCommand("{\"hue\":" + ColorSlider.Value + "}");
+            }
+        }
+
+        private void changeBri()
+        {
+            if (isConnected)
+            {
+                if (selectAll)
+                {
+                    for (int i = 1; i <= test.lamps; i++)
+                    {
+                        test.selectedLamp = "" + i;
+                        test.PutCommand("{\"bri\":" + slider.Value + " }");
+                    }
+                }
+                else
+                    test.PutCommand("{\"bri\":" + slider.Value + "}");
+            }
+        }
+
+
+        private void SaturationSlider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        {
+            changeSat();
+        }
+
+        private void slider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        {
+            changeBri();
+        }
+
+        private void ColorSlider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        {
+            changeHue();
         }
 
         private void SaturationSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)

@@ -30,6 +30,7 @@
       <RootProperty Name="Maximum" />
       <RootProperty Name="Height" />
       <RootEvent Name="ValueChanged" />
+      <RootEvent Name="PointerCaptureLost" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="HorizontalAlignment" />

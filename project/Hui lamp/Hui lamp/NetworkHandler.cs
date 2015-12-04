@@ -23,7 +23,6 @@ namespace Hui_lamp
         private string allInfo;
         public int lamps = 0;
         public string selectedLamp = "1";
-        Light light;
 
 
         public NetworkHandler(string ip, string port, string username)
@@ -49,13 +48,7 @@ namespace Hui_lamp
           //  codedusername = data[5];
             allInfo = await GetCommand("api/" + codedusername);
             lamps = findAllLamps(allInfo.Split('\"'));
-            light = new Light(this);
         }
-
-        //public Color getColor()
-        //{
-        //    return ColorUtil.getColor(light);
-        //}
 
         private int findAllLamps(string[] list)
         {
