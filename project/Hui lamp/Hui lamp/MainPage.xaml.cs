@@ -34,6 +34,14 @@ namespace Hui_lamp
         {
             this.InitializeComponent();
             SaturationSlider.IsEnabled = false;
+            BrightnesSlider.IsEnabled = false;
+            ColorSlider.IsEnabled = false;
+            button1.IsEnabled = false;
+            button2.IsEnabled = false;
+            checkBox_ligthsOn.IsEnabled = false;
+            comboBox_Lamps.IsEnabled = false;
+            button_SendAll.IsEnabled = false;
+            button_update.IsEnabled = false;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -45,7 +53,16 @@ namespace Hui_lamp
             isConnected = true;
             light1 = new Light1(BrightnesSlider.Value,ColorSlider.Value,SaturationSlider.Value);
             Kleur.Fill = new SolidColorBrush(getColor());
-
+            SaturationSlider.IsEnabled = true;
+            BrightnesSlider.IsEnabled = true;
+            ColorSlider.IsEnabled = true;
+            button1.IsEnabled = true;
+            button2.IsEnabled = true;
+            checkBox_ligthsOn.IsEnabled = true;
+            comboBox_Lamps.IsEnabled = true;
+            button_SendAll.IsEnabled = true;
+            button_update.IsEnabled = true;
+            update();
         }
 
         public void updateColor()
@@ -138,14 +155,18 @@ namespace Hui_lamp
 
         private void button_update_Click(object sender, RoutedEventArgs e)
         {
+            update();
+            //textBox_Poort.Text = test.codedusername;
+        }
+
+        public void update()
+        {
             comboBox_Lamps.Items.Clear();
             for (int i = 0; i < test.lamps; i++)
             {
                 comboBox_Lamps.Items.Add(i + 1 + "");
             }
             comboBox_Lamps.Items.Add("All Lamps");
-            //textBox_Poort.Text = test.codedusername;
-            
         }
 
         private void changeSat()

@@ -22,7 +22,7 @@
     <AppXManifest Include="C:\Users\martijn\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-12-04T11:52:46.568</Modified>
+      <Modified>2015-12-04T12:07:28.999</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -70,11 +70,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\martijn\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\entrypoint\Hui lamp.exe">
       <PackagePath>entrypoint\Hui lamp.exe</PackagePath>
-      <Modified>2015-12-04T11:52:45.808</Modified>
+      <Modified>2015-12-04T12:07:28.561</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\martijn\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\Hui lamp.exe">
       <PackagePath>Hui lamp.exe</PackagePath>
-      <Modified>2015-12-04T11:52:46.567</Modified>
+      <Modified>2015-12-04T12:07:28.998</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\martijn\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\Hui lamp.xr.xml">
       <PackagePath>Hui lamp.xr.xml</PackagePath>
@@ -110,7 +110,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\martijn\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-12-04T11:52:46.351</Modified>
+      <Modified>2015-12-04T11:57:55.412</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\martijn\Documents\GitHub\Hui-Lamp\project\Hui lamp\Hui lamp\bin\x64\Debug\Core\System.AppContext.dll">
       <PackagePath>System.AppContext.dll</PackagePath>
