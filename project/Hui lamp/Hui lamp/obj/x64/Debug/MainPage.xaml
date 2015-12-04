@@ -8,9 +8,9 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,10,10">
-        <Button x:ConnectionId='1' x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top"                     />
-        <Button x:ConnectionId='2' x:Name="button1" Content="Ligth OFF" HorizontalAlignment="Left" Margin="129,10,0,0" VerticalAlignment="Top"                      />
-        <Button x:ConnectionId='3' x:Name="button2" Content="Light On" HorizontalAlignment="Left" Margin="257,10,0,0" VerticalAlignment="Top"                      />
+        <Button x:ConnectionId='1' x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top"                      Width="88"/>
+        <Button x:ConnectionId='2' x:Name="button1" Content="Off" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top"                       Width="69"/>
+        <Button x:ConnectionId='3' x:Name="button2" Content="On" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top"                       Width="69"/>
         <Slider x:ConnectionId='4' x:Name="slider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="127" Maximum="254" Height="44"                                   />
         <Button x:ConnectionId='5' x:Name="button3" Content="Change Brightness" HorizontalAlignment="Left" Margin="142,155,0,0" VerticalAlignment="Top"                       Height="37" Width="144"/>
         <Slider x:ConnectionId='6' x:Name="ColorSlider" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="127" Height="49" Maximum="65535"                                        />
