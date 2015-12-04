@@ -33,6 +33,7 @@ namespace Hui_lamp
         public MainPage()
         {
             this.InitializeComponent();
+            SaturationSlider.IsEnabled = false;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -42,14 +43,14 @@ namespace Hui_lamp
             else
             test = new NetworkHandler(textBox_URL.Text, textBox_Poort.Text, "martijn");
             isConnected = true;
-            light1 = new Light1(slider.Value,ColorSlider.Value,SaturationSlider.Value);
+            light1 = new Light1(BrightnesSlider.Value,ColorSlider.Value,SaturationSlider.Value);
             Kleur.Fill = new SolidColorBrush(getColor());
 
         }
 
         public void updateColor()
         {
-            light1.setColor(slider.Value, ColorSlider.Value, SaturationSlider.Value);
+            light1.setColor(BrightnesSlider.Value, ColorSlider.Value, SaturationSlider.Value);
             Kleur.Fill = new SolidColorBrush(getColor());
         }
 
@@ -95,21 +96,6 @@ namespace Hui_lamp
             }
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
-        {
-            changeBri();
-        }
-
-        private void button4_Click(object sender, RoutedEventArgs e)
-        {
-            changeHue();
-        }
-
-        private void SaturationButton_Click(object sender, RoutedEventArgs e)
-        {
-            changeSat();
-        }
-
         private void button_SendAll_Click(object sender, RoutedEventArgs e)
         {
             if (isConnected)
@@ -119,12 +105,12 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
+                        test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + BrightnesSlider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
                     }
                 }
                 else
                     
-                test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
+                test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + BrightnesSlider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
                 //@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}"
             }
 
@@ -132,7 +118,7 @@ namespace Hui_lamp
 
         private async void put()
         {
-            string tests = @"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}";
+            string tests = @"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + BrightnesSlider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}";
             string response = await test.PutCommand(tests);
             int i = 0;
         }
@@ -206,11 +192,11 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand("{\"bri\":" + slider.Value + " }");
+                        test.PutCommand("{\"bri\":" + BrightnesSlider.Value + " }");
                     }
                 }
                 else
-                    test.PutCommand("{\"bri\":" + slider.Value + "}");
+                    test.PutCommand("{\"bri\":" + BrightnesSlider.Value + "}");
             }
         }
 
@@ -220,7 +206,7 @@ namespace Hui_lamp
             changeSat();
         }
 
-        private void slider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
+        private void BrightnesSlider_PointerCaptureLost(object sender, PointerRoutedEventArgs e)
         {
             changeBri();
         }
@@ -235,7 +221,7 @@ namespace Hui_lamp
             updateColor();
         }
 
-        private void slider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        private void BrightnesSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             updateColor();
         }

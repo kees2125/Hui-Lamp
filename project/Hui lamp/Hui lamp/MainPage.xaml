@@ -11,12 +11,9 @@
         <Button x:Name="button" Content="Connect" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Click="button_Click" Width="88"/>
         <Button x:Name="button1" Content="Off" HorizontalAlignment="Left" Margin="143,10,0,0" VerticalAlignment="Top" Click="button1_Click" Width="69"/>
         <Button x:Name="button2" Content="On" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top" Click="button2_Click" Width="69"/>
-        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="127" Maximum="254" Height="44" ValueChanged="slider_ValueChanged" PointerCaptureLost="slider_PointerCaptureLost"/>
-        <Button x:Name="button3" Content="Change Brightness" HorizontalAlignment="Left" Margin="142,155,0,0" VerticalAlignment="Top" Click="button3_Click" Height="37" Width="144"/>
-        <Slider x:Name="ColorSlider" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="127" Height="49" Maximum="65535" ValueChanged="ColorSlider_ValueChanged" PointerCaptureLost="ColorSlider_PointerCaptureLost" />
-        <Button x:Name="button4" Content="Change Color" HorizontalAlignment="Left" Margin="142,197,0,0" VerticalAlignment="Top" Height="37" Width="144" Click="button4_Click"/>
-        <Slider x:Name="SaturationSlider" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="127" Maximum="254" ValueChanged="SaturationSlider_ValueChanged" PointerCaptureLost="SaturationSlider_PointerCaptureLost"/>
-        <Button x:Name="SaturationButton" Content="Change Saturation" HorizontalAlignment="Left" Margin="143,239,0,0" VerticalAlignment="Top" Click="SaturationButton_Click"/>
+        <Slider x:Name="BrightnesSlider" HorizontalAlignment="Left" Margin="10,148,0,0" VerticalAlignment="Top" Width="191" Maximum="254" Height="44" ValueChanged="BrightnesSlider_ValueChanged" PointerCaptureLost="BrightnesSlider_PointerCaptureLost"/>
+        <Slider x:Name="ColorSlider" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="191" Height="49" Maximum="65535" ValueChanged="ColorSlider_ValueChanged" PointerCaptureLost="ColorSlider_PointerCaptureLost" />
+        <Slider x:Name="SaturationSlider" HorizontalAlignment="Left" Margin="10,232,0,0" VerticalAlignment="Top" Width="191" Maximum="254" ValueChanged="SaturationSlider_ValueChanged" PointerCaptureLost="SaturationSlider_PointerCaptureLost"/>
         <TextBox x:Name="textBox_URL" HorizontalAlignment="Left" Height="23" Margin="15,95,0,0" TextWrapping="Wrap" Text="145.48.205.190" VerticalAlignment="Top" Width="122" TextChanged="textBox_URL_TextChanged"/>
         <TextBox x:Name="textBox_Poort" HorizontalAlignment="Left" Height="32" Margin="160,95,0,0" TextWrapping="Wrap" Text="80" VerticalAlignment="Top" Width="126"/>
         <CheckBox x:Name="checkBox_Simulator" Content="simulator" HorizontalAlignment="Left" Height="19" Margin="15,58,0,0" VerticalAlignment="Top" Width="54"/>
@@ -25,6 +22,9 @@
         <ComboBox x:Name="comboBox_Lamps" HorizontalAlignment="Left" Height="33" Margin="142,293,0,0" VerticalAlignment="Top" Width="144" SelectionChanged="comboBox_Lamps_SelectionChanged"/>
         <Button x:Name="button_update" Content="Update" HorizontalAlignment="Left" Height="42" Margin="143,344,0,0" VerticalAlignment="Top" Width="143" Click="button_update_Click"/>
         <Rectangle x:Name="Kleur" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="33" Margin="15,404,0,0" VerticalAlignment="Top" Width="271"/>
+        <TextBox x:Name="Brightnes" HorizontalAlignment="Left" Margin="206,155,0,0" TextWrapping="Wrap" Text="Brightnes" VerticalAlignment="Top" BorderThickness="0"/>
+        <TextBox x:Name="Color" HorizontalAlignment="Left" Margin="206,192,0,0" TextWrapping="Wrap" Text="Color" VerticalAlignment="Top" Width="80" BorderThickness="0"/>
+        <TextBox x:Name="Saturation" HorizontalAlignment="Left" Margin="206,229,0,0" TextWrapping="Wrap" Text="Saturation" VerticalAlignment="Top" RenderTransformOrigin="0.254,0.469" BorderThickness="0"/>
 
     </Grid>
 </Page>
