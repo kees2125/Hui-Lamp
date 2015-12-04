@@ -19,7 +19,7 @@ namespace Hui_lamp
         private string ip;
         private string port;
         private string username;
-        private string codedusername;
+        public string codedusername = "3c48414519a1e3473964b7111b4f6c73";
         private string allInfo;
         public int lamps = 0;
         public string selectedLamp = "1";
@@ -31,7 +31,9 @@ namespace Hui_lamp
             this.ip = ip;
             this.port = port;
             this.username = username;
-            getUsername();           
+            getUsername();  
+                     
+
         }
 
         public string getAllinfo()
@@ -42,9 +44,9 @@ namespace Hui_lamp
 
         private async void getUsername()
         {
-            string post = await PostCommand("api", "{\"devicetype\":\"MijnApp#{" + username + "}\"}");
-            string[] data = post.Split('\"');
-            codedusername = data[5];
+           // string post = await PostCommand("api", "{\"devicetype\":\"MijnApp#{" + username + "}\"}");
+           // string[] data = post.Split('\"');
+          //  codedusername = data[5];
             allInfo = await GetCommand("api/" + codedusername);
             lamps = findAllLamps(allInfo.Split('\"'));
             light = new Light(this);

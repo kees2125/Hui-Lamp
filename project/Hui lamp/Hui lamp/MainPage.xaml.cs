@@ -42,12 +42,6 @@ namespace Hui_lamp
             else
             test = new NetworkHandler(textBox_URL.Text, textBox_Poort.Text, "martijn");
             isConnected = true;
-            for(int i = 0; i < test.lamps; i++ )
-            {
-                comboBox_Lamps.Items.Add(i+1+"");
-            }
-            comboBox_Lamps.Items.Add("All Lamps");
-            textBox_URL.Text = "" + test.lamps;
             light1 = new Light1(slider.Value,ColorSlider.Value,SaturationSlider.Value);
             Kleur.Fill = new SolidColorBrush(getColor());
 
@@ -73,13 +67,17 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand("{\"on\": \"false\"}");
+                        test.PutCommand("{\"on\": false}");
                     }
                 }
                 else
-                test.PutCommand("{\"on\": \"false\"}");
+                    test.PutCommand(@"{""on"":false}");
+
+
             }
         }
+
+        
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
@@ -91,11 +89,11 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand("{\"on\": \"true\"}");
+                        test.PutCommand("{\"on\": true}");
                     }
                 }
                 else
-                test.PutCommand("{\"on\": \"true\"}");
+                test.PutCommand("{\"on\": true}");
             }
         }
 
@@ -108,11 +106,11 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
+                        test.PutCommand("{\"bri\":" + slider.Value +" }");
                     }
                 }
                 else
-                test.PutCommand("{\"bri\":\"" + slider.Value + "\"}");
+                test.PutCommand("{\"bri\":" + slider.Value + "}");
             }
         }
 
@@ -126,11 +124,11 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
+                        test.PutCommand("{\"hue\":" + ColorSlider.Value + "}");
                     }
                 }
                 else
-                test.PutCommand("{\"hue\":\"" + ColorSlider.Value + "\"}");
+                test.PutCommand("{\"hue\":" + ColorSlider.Value + "}");
             }
         }
 
@@ -143,11 +141,11 @@ namespace Hui_lamp
                     for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
+                        test.PutCommand("{\"sat\":" + SaturationSlider.Value + "}");
                     }
                 }
                 else
-                test.PutCommand("{\"sat\":\"" + SaturationSlider.Value + "\"}");
+                test.PutCommand("{\"sat\":" + SaturationSlider.Value + "}");
             }
         }
 
@@ -155,21 +153,28 @@ namespace Hui_lamp
         {
             if (isConnected)
             {
-                if(selectAll)
+                if (selectAll)
                 {
-                    for(int i=1;i <= test.lamps;i++)
+                    for (int i = 1; i <= test.lamps; i++)
                     {
                         test.selectedLamp = "" + i;
-                        test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
+                        test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
                     }
                 }
                 else
-                test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
+                    
+                test.PutCommand(@"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}");
                 //@"{""on"":" + checkBox_ligthsOn.IsChecked + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}"
             }
 
         }
 
+        private async void put()
+        {
+            string tests = @"{""on"":" + checkBox_ligthsOn.IsChecked.ToString().ToLower() + @",""bri"":" + slider.Value + @",""hue"":" + ColorSlider.Value + @",""sat"":" + SaturationSlider.Value + "}";
+            string response = await test.PutCommand(tests);
+            int i = 0;
+        }
         private void comboBox_Lamps_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if((string)comboBox_Lamps.SelectedItem !="All Lamps")
@@ -179,7 +184,7 @@ namespace Hui_lamp
             }
             else
             {
-                selectAll = true;
+                selectAll = true; 
             }
 
         }
@@ -192,7 +197,8 @@ namespace Hui_lamp
                 comboBox_Lamps.Items.Add(i + 1 + "");
             }
             comboBox_Lamps.Items.Add("All Lamps");
-            textBox_URL.Text = "" + test.lamps;
+            //textBox_Poort.Text = test.codedusername;
+            
         }
 
         private void SaturationSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
@@ -208,6 +214,11 @@ namespace Hui_lamp
         private void ColorSlider_ValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
             updateColor();
+        }
+
+        private void textBox_URL_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
         //public async Task<string> LoginAsync()
